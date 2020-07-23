@@ -45,3 +45,38 @@ console.log(sweetPotato);
 console.log(sweetPotato.name);
 console.log(sweetPotato.internalColor);
 console.log(sweetPotato.sweetness);
+
+//Constructor Functions
+function User(name) //function need to be caps
+{
+    //this
+    this.name = name;
+
+    //return this
+}
+
+let adam = new User("Adam");
+console.log(adam.name);
+
+function NBAPlayer(name, team, threePointShooter)
+{
+    this.name = name;
+    this.team = team;
+    this.threePointShooter = threePointShooter;
+}
+
+let steph = new NBAPlayer("Steph Curry", "Warriors", true);
+console.log(steph);
+console.log(steph.name);
+
+function Potatoes(name, type, weight, edible)
+{
+    this.name = name;
+    this.type = type;
+    this.weight = weight;
+    this.edible = edible;
+}
+
+let aPotato = new Potatoes("Coolest Potato", "Sweet Potato", 5, true);
+console.log(aPotato);
+console.log(aPotato.edible);
