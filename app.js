@@ -75,8 +75,76 @@ function Potatoes(name, type, weight, edible)
     this.type = type;
     this.weight = weight;
     this.edible = edible;
+    this.intro = function()
+    {
+        console.log("Hi, I am a " + this.type + ".");
+    }
 }
 
 let aPotato = new Potatoes("Coolest Potato", "Sweet Potato", 5, true);
 console.log(aPotato);
 console.log(aPotato.edible);
+aPotato.intro();
+
+
+//class
+class Car
+{
+    constructor(year, make, model, color)
+    {
+        this.year = year;
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    drive()
+    {
+        console.log("Vroom");
+    }
+
+    intro()
+    {
+        console.log("This car is a " + this.make + " " + this.model);
+    }
+}
+
+let tesla = new Car(2020, "Tesla", "Model S", "red");
+console.log(tesla);
+tesla.drive();
+tesla.intro();
+
+
+
+
+class GithubProfile
+{
+    constructor(username, followers, url)
+    {
+        this.username = username;
+        this.followers = followers;
+        this.url = url;
+    }
+
+    intro()
+    {
+        console.log(`Hi, my github username is ${this.username}, and I have ${this.followers} follower(s). My github URL is ${this.url}.`)
+    }
+}
+
+//https://api.github.com/users/imjchiang
+fetch("https://api.github.com/users/imjchiang")
+.then(response =>
+{
+    return response.json();
+})
+.then(data =>
+{
+    console.log(data);
+    let githubURL = data.url;
+    let githubUsername = data.login;
+    let githubFollowers = data.followers;
+
+    let josh = new GithubProfile(githubUsername, githubFollowers, githubURL);
+    josh.intro();
+})
