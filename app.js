@@ -148,3 +148,29 @@ fetch("https://api.github.com/users/imjchiang")
     let josh = new GithubProfile(githubUsername, githubFollowers, githubURL);
     josh.intro();
 })
+
+
+
+let isMomHappy = true;
+
+// Promise
+let willIGetNewPhone = new Promise(
+    function (resolve, reject) {
+        if (isMomHappy) {
+            var phone = {
+                brand: 'Samsung',
+                color: 'black'
+            };
+            resolve(phone); // fulfilled
+        } else {
+            let reason = new Error('mom is not happy');
+            reject(reason); // reject
+        }
+
+    }
+);
+
+willIGetNewPhone.then(result =>
+{
+    console.log(result);
+})
