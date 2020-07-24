@@ -173,4 +173,35 @@ let willIGetNewPhone = new Promise(
 willIGetNewPhone.then(result =>
 {
     console.log(result);
-})
+});
+
+
+//"use strict";
+
+async function printUsers()                                         //need an async function to use await
+{
+    let joshEndpoint = "https://api.github.com/users/imjchiang";
+    let romeEndpoint = "https://api.github.com/users/romebell";
+    let imJosh = await fetch(joshEndpoint).then(response =>         //has await
+    {
+        return response.json()
+    });
+    let rome = fetch(romeEndpoint).then(response =>                 //does not have await
+    {
+        return response.json();
+    })
+    console.log(imJosh);    //waited until data grabbed
+    console.log(rome);      //did not wait until data grabbed
+}
+
+
+printUsers();
+
+async function printFacebook()
+{
+    let facebookEndpoint = "https://api.github.com/users/facebook";
+    let facebook = await fetch(facebookEndpoint).then(response => response.json());
+    console.log(facebook.login);
+}
+
+printFacebook();
